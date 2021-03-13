@@ -2,6 +2,15 @@
 var Score = /** @class */ (function () {
     function Score() {
     }
+    Object.defineProperty(Score.prototype, "totalScore", {
+        get: function () {
+            var foods = new Foods();
+            console.log(foods.activeElementsScore);
+            return foods.activeElementsScore.reduce(function (total, score) { return total + score; }, 0);
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Score;
 }());
 var Food = /** @class */ (function () {

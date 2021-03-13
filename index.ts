@@ -1,4 +1,10 @@
-class Score {}
+class Score {
+  get totalScore() {
+    const foods = new Foods();
+    console.log(foods.activeElementsScore);
+    return foods.activeElementsScore.reduce((total, score) => total + score, 0)
+  }
+}
 class Food {
   constructor(public element: HTMLDivElement) {
     element.addEventListener('click', this.clickEventHandler.bind(this));
