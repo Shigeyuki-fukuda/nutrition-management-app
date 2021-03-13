@@ -44,7 +44,7 @@ var Foods = /** @class */ (function () {
         get: function () {
             var _this = this;
             this._activeElementsScore = [];
-            this._activeElements.forEach(function (element) {
+            this.activeElements.forEach(function (element) {
                 var foodScore = element.querySelector('.food__score');
                 if (foodScore) {
                     _this._activeElementsScore.push(Number(foodScore.textContent));

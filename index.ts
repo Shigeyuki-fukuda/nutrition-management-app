@@ -26,7 +26,7 @@ class Foods {
   }
   get activeElementsScore() {
     this._activeElementsScore = [];
-    this._activeElements.forEach(element => {
+    this.activeElements.forEach(element => {
       const foodScore = element.querySelector('.food__score');
       if (foodScore) {
         this._activeElementsScore.push(Number(foodScore.textContent));
