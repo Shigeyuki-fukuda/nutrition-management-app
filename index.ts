@@ -4,14 +4,25 @@ class Food {
     element.addEventListener('click', this.clickEventHandler.bind(this));
   }
   clickEventHandler() {
-    console.log(this.element.classList);
+    // tailwind cssでスタイルを変えるため
     this.element.classList.toggle('bg-gray-300');
-    console.log(this.element.classList);
+    // active状態の要素を区別するため
+    this.element.classList.toggle('food--active');
   }
 }
 class Foods {
   elements = document.querySelectorAll<HTMLDivElement>('.food');
+  private _activeElements: HTMLDivElement[] = [];
 
+  get activeElements() {
+    this._activeElements = [];
+    this.elements.forEach(element => {
+      if (element.classList.contains('food--active')) {
+        this._activeElements.push(element);
+      }
+    })
+    return this._activeElements;
+  }
   constructor() {
     this.elements.forEach(element => {
       new Food(element);
@@ -19,4 +30,3 @@ class Foods {
   }
 }
 const foods = new Foods();
-console.log(foods);
