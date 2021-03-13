@@ -1,5 +1,5 @@
-"use strict";
-class Food {
+import { Score } from './score.js';
+export class Food {
     constructor(element) {
         this.element = element;
         element.addEventListener('click', this.clickEventHandler.bind(this));

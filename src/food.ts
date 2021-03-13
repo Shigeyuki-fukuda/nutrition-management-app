@@ -1,4 +1,6 @@
-class Food implements Foodable {
+import { Foodable } from './interface.js';
+import { Score } from './score.js';
+export class Food implements Foodable {
   constructor(public element: HTMLDivElement) {
     element.addEventListener('click', this.clickEventHandler.bind(this));
   }

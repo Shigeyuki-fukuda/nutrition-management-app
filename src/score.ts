@@ -1,4 +1,6 @@
-class Score implements Scoreable {
+import { Scoreable } from './interface.js';
+import { Foods } from './foods.js'
+export class Score implements Scoreable {
   private static instance: Score;
 
   get totalScore() {
