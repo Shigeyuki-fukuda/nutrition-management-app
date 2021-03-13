@@ -21,6 +21,7 @@ var Foods = /** @class */ (function () {
     function Foods() {
         this.elements = document.querySelectorAll('.food');
         this._activeElements = [];
+        this._activeElementsScore = [];
         this.elements.forEach(function (element) {
             new Food(element);
         });
@@ -35,6 +36,21 @@ var Foods = /** @class */ (function () {
                 }
             });
             return this._activeElements;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Foods.prototype, "activeElementsScore", {
+        get: function () {
+            var _this = this;
+            this._activeElementsScore = [];
+            this._activeElements.forEach(function (element) {
+                var foodScore = element.querySelector('.food__score');
+                if (foodScore) {
+                    _this._activeElementsScore.push(Number(foodScore.textContent));
+                }
+            });
+            return this._activeElementsScore;
         },
         enumerable: false,
         configurable: true
