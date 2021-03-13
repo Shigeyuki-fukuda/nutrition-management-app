@@ -8,4 +8,4 @@ https://nutrition-ts.netlify.app
 - TypeScript : 4.2.2
 - Tailwind CSS : 2.0.3
 
-![image](https://user-images.githubusercontent.com/27620649/111030128-04e9b600-8444-11eb-8c3a-c3da73c37c3c.png)
+![image](https://user-images.githubusercontent.com/27620649/111030754-5d6e8280-8447-11eb-823a-e74793af3303.png)
