@@ -13,6 +13,12 @@ var Score = /** @class */ (function () {
     Score.prototype.render = function () {
         document.querySelector('.score__number').textContent = String(this.totalScore);
     };
+    Score.getInstance = function () {
+        if (!Score.instance) {
+            Score.instance = new Score();
+        }
+        return Score.instance;
+    };
     return Score;
 }());
 var Food = /** @class */ (function () {
@@ -25,7 +31,7 @@ var Food = /** @class */ (function () {
         this.element.classList.toggle('bg-gray-300');
         // active状態の要素を区別するため
         this.element.classList.toggle('food--active');
-        var score = new Score();
+        var score = Score.getInstance();
         score.render();
     };
     return Food;
