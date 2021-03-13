@@ -1,8 +1,10 @@
 class Score {
   get totalScore() {
-    const foods = new Foods();
-    console.log(foods.activeElementsScore);
+    const foods = Foods.getInstance();
     return foods.activeElementsScore.reduce((total, score) => total + score, 0)
+  }
+  render() {
+    document.querySelector('.score__number')!.textContent = String(this.totalScore);
   }
 }
 class Food {
@@ -14,9 +16,13 @@ class Food {
     this.element.classList.toggle('bg-gray-300');
     // active状態の要素を区別するため
     this.element.classList.toggle('food--active');
+    const score = new Score();
+    score.render();
   }
 }
 class Foods {
+  private static instance: Foods;
+
   elements = document.querySelectorAll<HTMLDivElement>('.food');
   private _activeElements: HTMLDivElement[] = [];
   private _activeElementsScore: number[] = [];
@@ -40,10 +46,16 @@ class Foods {
     })
     return this._activeElementsScore;
   }
-  constructor() {
+  private constructor() {
     this.elements.forEach(element => {
       new Food(element);
     })
   }
+  static getInstance() {
+    if (!Foods.instance) {
+      Foods.instance = new Foods();
+    }
+    return Foods.instance;
+  }
 }
-const foods = new Foods();
+const foods = Foods.getInstance();
