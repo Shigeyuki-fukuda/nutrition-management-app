@@ -12,5 +12,8 @@ module.exports = {
       use: 'ts-loader',
       exclude: /node_modules/
     }]
+  },
+  resolve: {
+    extensions: ['.ts', '.js'] // 拡張子がない場合にwebpackが左から解決する設定
   }
 }
